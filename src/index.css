@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 5%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 33% 5%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 33% 5%; 
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 20% 70%;
+
+    --accent: 220 20% 20%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 30% 20%;
+    --input: 220 33% 10%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-tech-darker text-tech-text;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  input, textarea, select {
+    @apply transition-all duration-200 focus:ring-1 focus:ring-tech-accent focus:ring-opacity-50;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  .glass-panel {
+    @apply bg-tech-overlay backdrop-blur-md border border-white/10 shadow-lg;
+  }
+  
+  .nav-link {
+    @apply px-4 py-2 text-sm font-medium text-tech-muted hover:text-tech-text transition-colors relative;
+  }
+  
+  .nav-link.active {
+    @apply text-tech-text;
+  }
+  
+  .nav-link.active::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-tech-accent rounded-full;
+  }
+  
+  .btn-primary {
+    @apply flex items-center gap-2 px-6 py-2.5 bg-tech-accent hover:bg-tech-accent/90 text-white font-medium rounded-full transition-all shadow-md hover:shadow-lg;
+  }
+  
+  .input-field {
+    @apply w-full p-3 bg-tech-input border border-white/5 rounded-md text-tech-text placeholder:text-tech-muted/70 focus:outline-none focus:border-tech-accent/50;
+  }
+}
+
+/* Remove App.css defaults */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
